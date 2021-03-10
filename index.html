@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Image Classification using Feature Extraction with MobileNet</title>
-
-
   <script src="https://unpkg.com/ml5@0.6.1/dist/ml5.min.js"></script>
-
   <style></style>
 </head>
 
 <body>
   <h2>Image Classification using Feature Extraction with MobileNet</h2>
-  <h3>(Train a Neural Network with 2 classes - whether you are wearing mask or not)</h3>
+  <h3>(Train a Neural Network with 2 classes - For example: whether you are wearing mask or not)</h3>
   <p>
     Class 1: <input type="text" id="label1Input" value="without_mask"></input>
     Class 2: <input type="text" id="label2Input" value="with_mask"></input>
@@ -20,28 +17,28 @@
   <video id="video" width="640" height="480" autoplay></video>
 
   <h6>
-    <span id="loading">Loading base model...</span> | <span id="videoStatus">Loading video...</span>
+    Status: <span id="status"></span>
   </h6>
   <h5>
     Result: <span id="result">N/A</span> (<span id="confidence">N/A</span>)
   </h5>
   <p>
-    <button id="label1Button">Add Class 1 (Not Wearning Mask)</button>
+    <button id="label1Button">Add Class 1 (Not Wearning Mask)</button> - Class 1: <span id="amountOfLabel1Images">0</span> images
   </p>
   <p>
-    Class 1: <span id="amountOfLabel1Images">0</span> images
-  </p>
-  <p>
-    <button id="label2Button">Add Class 2 (Wearing Mask)</button>
-  </p>
-  <p>
-    Class 2: <span id="amountOfLabel2Images">0</span> images
+    <button id="label2Button">Add Class 2 (Wearing Mask)</button> - Class 2: <span id="amountOfLabel2Images">0</span> images
   </p>
   <p>
     <button id="train">Train</button> <span id="loss"></span>
   </p>
   <p>
-    <button id="predict">Start guessing!</button><br />
+    <button id="predict">Start Detecting!</button><br />
+  </p>
+  <p>
+    <button id="loadModel">Load Model</button><br />
+  </p>
+  <p>
+    <button id="saveModel">Save Model</button><br />
   </p>
   <script src="sketch.js"></script>
 </body>
