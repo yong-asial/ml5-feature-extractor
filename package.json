@@ -1,0 +1,23 @@
+{
+  "name": "ml5-feature-extractor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "dev": "browser-sync start -s --watch --port 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yong-asial/ml5-feature-extractor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yong-asial/ml5-feature-extractor/issues"
+  },
+  "homepage": "https://github.com/yong-asial/ml5-feature-extractor#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.14"
+  }
+}

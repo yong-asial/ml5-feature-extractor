@@ -50,6 +50,14 @@ const main = () => {
   label2Input.textContent = DEFAULT_LABEL_2;
 };
 
+label1Input.onchange = () => {
+  label1Button.innerText = label1Input.value || 'class 1';
+};
+
+label2Input.onchange = () => {
+  label2Button.innerText = label2Input.value || 'class 2';
+};
+
 // Update current status
 const updateStatus = () => {
   let text = [];
@@ -76,7 +84,7 @@ const videoReady = () => {
 // When the "label1" button is pressed, add the current frame
 // from the video with a "label1" to the classifier
 label1Button.onclick = () => {
-  const label1 = label1Input.textContent || DEFAULT_LABEL_1;
+  const label1 = label1Input.value || DEFAULT_LABEL_1;
   classifier.addImage(label1);
   amountOfLabel1Images.innerText = Number(amountOfLabel1Images.innerText) + 1;
 };
@@ -84,7 +92,7 @@ label1Button.onclick = () => {
 // When the "label2" button is pressed, add the current frame
 // from the video with a "label2" to the classifier
 label2Button.onclick = () => {
-  const label2 = label2Input.textContent || DEFAULT_LABEL_2;
+  const label2 = label2Input.value || DEFAULT_LABEL_2;
   classifier.addImage(label2);
   amountOfLabel2Images.innerText = Number(amountOfLabel2Images.innerText) + 1;
 };
@@ -132,6 +140,8 @@ predict.onclick = () => {
     classifier.classify(gotResults);
     startPredicting = true;
     predict.innerText = 'Stop Detecting!';
+  } else {
+    window.alert('Please train the model or load the existing one!');
   }
 };
 
@@ -142,7 +152,6 @@ saveModel.onclick = () => {
       window.alert('Failed to save model');
       console.error(err);
     }
-    window.alert('Model saved successful');
   });
 };
 
@@ -156,7 +165,6 @@ loadModel.onclick = () => {
     }
     isCustomModelReady = true;
     updateStatus();
-    window.alert('Custom Model Loaded successful');
   });
 }
 
